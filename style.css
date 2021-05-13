@@ -1,0 +1,61 @@
+* {
+  padding: 0;
+  margin: 0;
+  font-family: "Lato", sans-serif;
+}
+
+.wrapper {
+  height: 90vh;
+  width: 70%;
+  margin: 0 auto;
+  display: flex;
+  overflow: hidden;
+}
+
+h1 {
+  text-align: center;
+  padding: 10px;
+}
+
+.box {
+  border: 1px green solid;
+  width: 60%;
+  height: 80%;
+  display: grid;
+  grid-template-columns: auto auto auto auto auto;
+  margin-right: 30px;
+  grid-gap: 10px;
+}
+.boxes {
+  border: 1px blue solid;
+}
+.players {
+  border: 1px green solid;
+  height: 90%;
+  width: 50%;
+  display: grid;
+  text-align: center;
+}
+
+.players-box {
+  border: 1px solid yellow;
+  display: grid;
+  grid-template-rows: auto auto;
+}
+.question-box {
+  border: 1px solid red;
+  display: grid;
+  padding: 30px;
+}
+
+.answer-box {
+  border: 1px solid green;
+
+  display: grid;
+  grid-template-columns: auto auto;
+}
+
+.answers {
+  border: 1px solid;
+  padding: 30px;
+}
