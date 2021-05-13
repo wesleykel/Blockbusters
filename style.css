@@ -22,7 +22,7 @@ h1 {
   width: 60%;
   height: 80%;
   display: grid;
-  grid-template-columns: auto auto auto auto auto;
+  grid-template-columns: auto auto auto auto;
   margin-right: 30px;
   grid-gap: 10px;
 }
