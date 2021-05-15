@@ -28,6 +28,7 @@ h1 {
 }
 .boxes {
   border: 1px blue solid;
+  border-radius: 10px;
 }
 .players {
   border: 1px green solid;

@@ -27,7 +27,7 @@
     <h1>BlockBusters</h1>
     <div class="wrapper">
       <div class="box">
-        <div id="boxes-1" class="boxes"></div>
+        <div data-value="taken" id="boxes-1" class="boxes"></div>
         <div id="boxes-2" class="boxes"></div>
         <div id="boxes-3" class="boxes"></div>
         <div id="boxes-4" class="boxes"></div>
@@ -46,26 +46,27 @@
       </div>
       <div class="players">
         <div class="players-box">
-          <div class="question-box"></div>
+          <div id="qb1" class="question-box"></div>
           <div class="answer-box">
-            <div class="answers">A</div>
-            <div class="answers">B</div>
-            <div class="answers">C</div>
-            <div class="answers">D</div>
+            <div id="ab1" class="answers">A</div>
+            <div id="ab2" class="answers">B</div>
+            <div id="ab3" class="answers">C</div>
+            <div id="ab4" class="answers">D</div>
           </div>
         </div>
         <div class="players-box">
-          <div class="question-box"></div>
+          <div id="qb2" class="question-box"></div>
           <div class="answer-box">
-            <div class="answers">A</div>
-            <div class="answers">B</div>
-            <div class="answers">C</div>
-            <div class="answers">D</div>
+            <div id="ab5" class="answers">A</div>
+            <div id="ab6" class="answers">B</div>
+            <div id="ab7" class="answers">C</div>
+            <div id="ab8" class="answers">D</div>
           </div>
         </div>
       </div>
     </div>
 
+    <script src="question.js" async defer></script>
     <script src="app.js" async defer></script>
   </body>
 </html>
