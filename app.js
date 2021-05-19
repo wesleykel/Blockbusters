@@ -6,7 +6,10 @@ let randomNumber = [1, 2, 3, 4];
 let random = Math.floor(Math.random() * 4);
 
 let questionNumber = 0;
-const boxes = document.getElementsByClassName("boxes");
+let answerNumber = questionNumber++;
+
+let boxes = document.getElementsByClassName("boxes");
+
 const box1 = document.querySelector("#boxes-1");
 
 box1.addEventListener("click", askQuestion, false);
@@ -57,6 +60,8 @@ box16.addEventListener("click", askQuestion, false);
 
 const questionBox1 = document.getElementById("qb1");
 const answerBox_1 = document.getElementById("ab1");
+answerBox_1.addEventListener("click", checkAnswer, false);
+
 const answerBox_2 = document.getElementById("ab2");
 const answerBox_3 = document.getElementById("ab3");
 const answerBox_4 = document.getElementById("ab4");
@@ -67,8 +72,22 @@ const answerBox_6 = document.getElementById("ab6");
 const answerBox_7 = document.getElementById("ab7");
 const answerBox_8 = document.getElementById("ab8");
 
+function checkAnswer() {
+  if (answerBox_1.innerHTML === results[`${answerNumber}`].correct_answer) {
+    console.log("true");
+    return 15;
+  } else {
+    console.log("false");
+    return 22;
+  }
+}
+
 function askQuestion() {
-  if (this.className === "boxes" && questionNumber % 2 !== 0) {
+  let clickID = this.id;
+  let clickedID = document.getElementById(`${clickID}`);
+  console.log(clickedID);
+
+  if (this.className === "boxes" && questionNumber % 2 === 0) {
     questionBox1.innerHTML = results[`${questionNumber}`].question;
     shuffleAnswersA();
     clearBoardB();
@@ -78,6 +97,7 @@ function askQuestion() {
     clearBoardA();
   }
   questionNumber++;
+  answerNumber++;
   console.log(questionNumber);
 }
 askQuestion();
@@ -127,4 +147,5 @@ function newGame() {
   answerBox_7.innerHTML = "C";
   answerBox_8.innerHTML = "D";
 }
+
 newGame();
