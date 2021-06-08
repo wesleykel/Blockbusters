@@ -1,12 +1,9 @@
 let player1 = [];
 let player2 = [];
 
-let randomNumber = [1, 2, 3, 4];
-
-let random = Math.floor(Math.random() * 4);
-
 let questionNumber = 0;
-let answerNumber = questionNumber++;
+
+let answer = false;
 
 let boxes = document.getElementsByClassName("boxes");
 
@@ -29,7 +26,7 @@ box5.addEventListener("click", askQuestion, false);
 const box6 = document.querySelector("#boxes-6");
 box6.addEventListener("click", askQuestion, false);
 const box7 = document.querySelector("#boxes-7");
-box7.addEventListener("click", askQuestion, false);
+box7.addEventListener("click", askQuestion, false);ß
 
 const box8 = document.querySelector("#boxes-8");
 box8.addEventListener("click", askQuestion, false);
@@ -60,49 +57,19 @@ box16.addEventListener("click", askQuestion, false);
 
 const questionBox1 = document.getElementById("qb1");
 const answerBox_1 = document.getElementById("ab1");
-answerBox_1.addEventListener("click", checkAnswer, false);
+answerBox_1.addEventListener("click", checkAnswerA, false);
 
 const answerBox_2 = document.getElementById("ab2");
+answerBox_2.addEventListener("click", checkAnswerB, false);
+
 const answerBox_3 = document.getElementById("ab3");
+answerBox_3.addEventListener("click", checkAnswerC, false);
+
 const answerBox_4 = document.getElementById("ab4");
-
-const questionBox2 = document.getElementById("qb2");
-const answerBox_5 = document.getElementById("ab5");
-const answerBox_6 = document.getElementById("ab6");
-const answerBox_7 = document.getElementById("ab7");
-const answerBox_8 = document.getElementById("ab8");
-
-function checkAnswer() {
-  if (answerBox_1.innerHTML === results[`${answerNumber}`].correct_answer) {
-    console.log("true");
-    return 15;
-  } else {
-    console.log("false");
-    return 22;
-  }
-}
-
-function askQuestion() {
-  let clickID = this.id;
-  let clickedID = document.getElementById(`${clickID}`);
-  console.log(clickedID);
-
-  if (this.className === "boxes" && questionNumber % 2 === 0) {
-    questionBox1.innerHTML = results[`${questionNumber}`].question;
-    shuffleAnswersA();
-    clearBoardB();
-  } else {
-    questionBox2.innerHTML = results[`${questionNumber}`].question;
-    shuffleAnswersB();
-    clearBoardA();
-  }
-  questionNumber++;
-  answerNumber++;
-  console.log(questionNumber);
-}
-askQuestion();
+answerBox_4.addEventListener("click", checkAnswerD, false);
 
 function shuffleAnswersA() {
+  questionBox1.innerHTML = results[`${questionNumber}`].question;
   const answerBoxArray = [answerBox_1, answerBox_2, answerBox_3, answerBox_4];
   let shuffled = answerBoxArray.sort(() => Math.random() - 0.5);
   shuffled[0].innerHTML = results[`${questionNumber}`].correct_answer;
@@ -110,15 +77,7 @@ function shuffleAnswersA() {
   shuffled[2].innerHTML = results[`${questionNumber}`].incorrect_answers[1];
   shuffled[3].innerHTML = results[`${questionNumber}`].incorrect_answers[2];
 }
-
-function shuffleAnswersB() {
-  const answerBoxArray2 = [answerBox_5, answerBox_6, answerBox_7, answerBox_8];
-  let shuffled2 = answerBoxArray2.sort(() => Math.random() - 0.5);
-  shuffled2[0].innerHTML = results[`${questionNumber}`].correct_answer;
-  shuffled2[1].innerHTML = results[`${questionNumber}`].incorrect_answers[0];
-  shuffled2[2].innerHTML = results[`${questionNumber}`].incorrect_answers[1];
-  shuffled2[3].innerHTML = results[`${questionNumber}`].incorrect_answers[2];
-}
+let shuffledAnsA = shuffleAnswersA();
 
 function clearBoardA() {
   questionBox1.innerHTML = "";
@@ -127,13 +86,6 @@ function clearBoardA() {
   answerBox_3.innerHTML = "C";
   answerBox_4.innerHTML = "D";
 }
-function clearBoardB() {
-  questionBox2.innerHTML = "";
-  answerBox_5.innerHTML = "A";
-  answerBox_6.innerHTML = "B";
-  answerBox_7.innerHTML = "C";
-  answerBox_8.innerHTML = "D";
-}
 
 function newGame() {
   questionBox1.innerHTML = "";
@@ -141,11 +93,65 @@ function newGame() {
   answerBox_2.innerHTML = "B";
   answerBox_3.innerHTML = "C";
   answerBox_4.innerHTML = "D";
-  questionBox2.innerHTML = "";
-  answerBox_5.innerHTML = "A";
-  answerBox_6.innerHTML = "B";
-  answerBox_7.innerHTML = "C";
-  answerBox_8.innerHTML = "D";
 }
 
 newGame();
+
+ function askQuestion() {
+  let pickedBox = this.id;
+  console.log(pickedBox);
+
+ 
+  if (this.className === "free") {
+    this.className = "inplay";
+    shuffleAnswersA();
+  }
+}
+
+function checkAnswerA() {
+  console.log(answerBox_1.innerHTML);
+  console.log(results[`${questionNumber}`].correct_answer);
+
+  if (answerBox_1.innerHTML === results[`${questionNumber}`].correct_answer) {
+    console.log(answer);
+    return true;
+  } else {
+    return false;
+    console.log(answer);
+  }
+}
+
+let checkAnswerAVal = checkAnswerA();
+
+function checkAnswerB() {
+  console.log(answerBox_2.innerHTML);
+  console.log(results[`${questionNumber}`].correct_answer);
+
+  if (answerBox_2.innerHTML === results[`${questionNumber}`].correct_answer) {
+    console.log(true);
+    return 1;
+  } else {
+    return 2;
+  }
+}
+function checkAnswerC() {
+  console.log(answerBox_3.innerHTML);
+  console.log(results[`${questionNumber}`].correct_answer);
+
+  if (answerBox_3.innerHTML === results[`${questionNumber}`].correct_answer) {
+    console.log(true);
+    return 1;
+  } else {
+    return 2;
+  }
+}
+function checkAnswerD() {
+  console.log(answerBox_4.innerHTML);
+  console.log(results[`${questionNumber}`].correct_answer);
+
+  if (answerBox_4.innerHTML === results[`${questionNumber}`].correct_answer) {
+    console.log(true);
+  } else {
+    return 2;
+  }
+}

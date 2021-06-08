@@ -26,10 +26,21 @@ h1 {
   margin-right: 30px;
   grid-gap: 10px;
 }
-.boxes {
+.free {
   border: 1px blue solid;
   border-radius: 10px;
   background-color: lawngreen;
+}
+
+.inplay {
+  border: 1px blue solid;
+  border-radius: 10px;
+  background-color: red;
+}
+.played {
+  border: 1px blue solid;
+  border-radius: 10px;
+  background-color: yellow;
 }
 .p1box {
   background-color: lightsalmon;
