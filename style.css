@@ -32,10 +32,16 @@ h1 {
   background-color: lawngreen;
 }
 
-.inplay {
+.inPlay {
   border: 1px blue solid;
   border-radius: 10px;
   background-color: red;
+}
+
+.inPlay2 {
+  border: 1px pink;
+  border-radius: 10px;
+  background-color: pink;
 }
 .played {
   border: 1px blue solid;
